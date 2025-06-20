@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Task</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="page-container">
+    
+    <!-- Full-width form -->
+    <div class="form-container">
+      <form action="/create-task" method="POST" class="task-form">
+        <input type="text" name="title" placeholder="Title goes here" required />
+        <textarea name="details" placeholder="Write your task details here..." required></textarea>
+        <input type="submit" value="Create Task" class="button" />
+      </form>
+    </div>
+
+    <!-- One task list wrapper -->
+    <div class="tasks">
+      <% if (files.length > 0) {%>
+      <% files.forEach(function(val){%>
+          <div class="task">
+        <h1> <%=val%></h1>
+        <a class="read" href="/files/<%=val%>">read more..</a>
+      </div>
+        <% }) %>
+      <% } else{ %>
+        <h1 class="text" > NO TASK YET...</h1>
+        <% }%>
+    
+    </div>
+
+  </div>
+</body>
+</html>
